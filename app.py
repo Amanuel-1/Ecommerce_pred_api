@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask import jsonify
+from flask.ext.cors import cors , cross_origin
 import joblib
 import pandas as pd
 model = None
@@ -12,6 +13,7 @@ def load_model():
 
 
 @app.route('/predict',methods=['POST'])
+@cross_origin(origin='*',headers=['Content-Type','application/json'])
 def predict():
     load_model()
     data  = pd.DataFrame(request.json)
