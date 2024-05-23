@@ -20,9 +20,10 @@ def predict():
 
 @app.route('/',methods=['GET'])
 def index():
+    load_model()
     return "Welcome to Ecommerce Prediction API"
 
 if __name__ == '__main__':
-    load_model()
+    
     app.run(port=4000,debug=True)
 
