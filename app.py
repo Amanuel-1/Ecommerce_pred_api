@@ -15,7 +15,6 @@ def load_model():
 
 
 @app.route('/predict',methods=['POST'])
-@cross_origin(origin='*',headers=['Content-Type','application/json'])
 def predict():
     load_model()
     data  = pd.DataFrame(request.json)
