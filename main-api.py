@@ -24,5 +24,5 @@ def index():
 
 if __name__ == '__main__':
     load_model()
-    app.run(port=4000,debug=True)
+    app.run(debug=True)
 
