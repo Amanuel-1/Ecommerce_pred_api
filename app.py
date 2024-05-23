@@ -3,9 +3,12 @@ from flask import jsonify
 from flask.ext.cors import cors , cross_origin
 import joblib
 import pandas as pd
+from flask_cors import CORS
 model = None
 
 app = Flask(__name__)
+
+CORS(app)
 def load_model():
     global model
     model  =  joblib.load('./ecommerce-predicter-model.pkl')
