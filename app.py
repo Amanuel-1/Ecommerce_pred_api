@@ -13,6 +13,7 @@ def load_model():
 
 @app.route('/predict',methods=['POST'])
 def predict():
+    load_model()
     data  = pd.DataFrame(request.json)
     prediction = model.predict(data)
     print("this prediction ############## ",prediction)
@@ -20,7 +21,7 @@ def predict():
 
 @app.route('/',methods=['GET'])
 def index():
-    load_model()
+    
     return "Welcome to Ecommerce Prediction API"
 
 if __name__ == '__main__':
